@@ -1,6 +1,9 @@
 //= require ../lib/_lunr
 //= require ../lib/_jquery
 //= require ../lib/_jquery.highlight
+//= require ../lib/lunr.multi
+//= require ../lib/lunr.stemmer.support
+//= require ../lib/lunr.ru
 ;(function () {
   'use strict';
 
@@ -9,12 +12,19 @@
   var searchDelay = 0;
   var timeoutHandle = 0;
 
-  var index = new lunr.Index();
+  // var index = new lunr.Index();
 
-  index.ref('id');
-  index.field('title', { boost: 10 });
-  index.field('body');
-  index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
+  // index.ref('id');
+  // index.field('title', { boost: 10 });
+  // index.field('body');
+  // index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
+
+var index = lunr(function () {
+    this.use(lunr.multiLanguage('ru', 'en'));
+    this.ref('id');
+    this.field('title', { boost: 10 });
+    this.field('body');
+  })
 
   $(populate);
   $(bind);
