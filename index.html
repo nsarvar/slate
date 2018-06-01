@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API v1.0 - API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;java&quot;,&quot;python&quot;,&quot;c++&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,9 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="java">java</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="c++">c++</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,27 +221,41 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#3394112aa9" class="toc-h1 toc-link" data-title="">Введение</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#550fd792bf" class="toc-h2 toc-link" data-title="">Требования к интерфейсу</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#a7299097ee" class="toc-h2 toc-link" data-title="">Принципы работы интерфейса</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#api" class="toc-h1 toc-link" data-title="api">API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#8e5d1281c9" class="toc-h2 toc-link" data-title="">Проверки Баланса Дилера</a>
+                  </li>
+                  <li>
+                    <a href="#ed56e0750e" class="toc-h2 toc-link" data-title="">Проверка доступных операторов</a>
+                  </li>
+                  <li>
+                    <a href="#32bb1e9b52" class="toc-h2 toc-link" data-title="">Возврат курса</a>
+                  </li>
+                  <li>
+                    <a href="#7db9e25bf8" class="toc-h2 toc-link" data-title="">Проверка существование счета абонента</a>
+                  </li>
+                  <li>
+                    <a href="#04764caba2" class="toc-h2 toc-link" data-title="">Пополнение лицевого счета</a>
+                  </li>
+                  <li>
+                    <a href="#e89eaaf5d8" class="toc-h2 toc-link" data-title="">Отмена и корректировка платежа</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -253,187 +266,824 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='3394112aa9'>Введение</h1>
+<p>This is the ExpressPay API documentation. Here you can find out about the functionality available through the API, and how you can integrate your system into ExpressPay system. This is designed to allow you to automate your business account operations.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>To help you navigate, this page is split into 3 vertical sections:</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<ul>
+<li>the navigation menu and search on the left,</li>
+<li>the content in the middle,</li>
+<li>and usage examples on the right.</li>
+</ul>
+<h2 id='550fd792bf'>Требования к интерфейсу</h2>
+<ul>
+<li>Интерфейс должен принимать запросы по протоколу HTTP или HTTPS с IP-адресов подсетей:</li>
+<li>IP ?</li>
+<li>Интерфейс должен обрабатывать параметры, передаваемые системой методом GET.</li>
+<li>Интерфейс должен формировать ответ системе в формате XML в кодировке UTF-8.</li>
+<li>Обмен информацией ведется в режиме запрос-ответ, при этом скорость ответа не должна превышать 60 секунд, в противном случае система разрывает соединение по таймауту.</li>
+<li>Если предполагаемое количество платежей за услуги подключаемого дилера, ожидается интенсивным (до 10 платежей в минуту и более), необходимо, чтобы интерфейс поддерживал многопоточную коммуникацию до 10-15 одновременных соединений.</li>
+<li>Интерфейс должен принимать запросы по протоколу HTTP или HTTPS на один из следующих TCP- порта: PORT. Использование иных портов не допускается.</li>
+</ul>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+IP - 
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='a7299097ee'>Принципы работы интерфейса</h2>
+<ol>
+<li><p>Каждый платеж в системе ExpressPay имеет уникальный идентификатор, который передается провайдеру в переменной txn_id - целое число длиной до 20 знаков. По этому идентификатору производится дальнейшая сверка взаиморасчетов и решение спорных вопросов.</p></li>
+<li><p>Сумма платежа в валюте, указанной в переменной ccy (код валюты Alpha-3 ISO 4217), передается провайдеру в переменной sum - дробное число с точностью до сотых, в качестве разделителя используется <code>«.» (точка)</code>. Если сумма представляет целое число, то оно все равно дополняется точкой и нулями, например - «152.00».</p></li>
+<li><p>В запросе на добавление платежа (запрос «pay»), система передает дату платежа (под датой платежа в системе подразумевается дата получения запроса от клиента) в переменной <code>txn_date</code>  - дата в формате <code>ГГГГММДДЧЧММСС</code>. По этой дате производится дальнейшая сверка взаиморасчетов между  ExpressPay и дилером. Например, клиент отправил запрос в систему  ExpressPay  <code>31.12.2017 в 23:59:59</code>, и система  ExpressPay  отправила свой запрос провайдеру <code>01.01.2018 в 00:00:05</code>. Это может привести к проблеме сверки платежей, если система провайдера поместит транзакцию в следующий расчётный период. Чтобы избежать подобных проблем,  ExpressPay  предоставляет провайдеру оригинальную дату платежа. </p></li>
+<li><p>Провайдер идентифицирует своего абонента по уникальному идентификатору (номер лицевого счета, телефона, логин и т.д.). Перед отправкой провайдеру, идентификатор проходит проверку корректности в соответствии с регулярным выражением, которое должен предоставить провайдер. Идентификатор абонента передается в переменной account - строка, содержащая буквы, цифры и спецсимволы, длиной до 200 символов.</p></li>
+<li><p>Передача информации о платеже провайдеру производится системой в 2 этапа - проверка статуса абонента и непосредственно проведение платежа. Также может добавляться этап получения дополнительных параметров платежа от провайдера, предоставляющего абоненту несколько сервисов, для информирования плательщика и добавления параметров платежа по выбору плательщика.
+Тип запроса передается системой в переменной command - строка, принимающая значения «prvId», «getbalance», «check»,«pay» и «getlnfo».</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li>При проверке (запрос «prvId»),  протокол должен возвращать доступные на тот момент услуги </li>
+<li>При проверке (запрос «getbalance»),  протокол должен возвращать баланс дилера</li>
+<li>При проверке статуса (запрос «check»), протокол должен проверить наличие абонента с указанным  идентификатором, суммы платежа в соответствии с принятой логикой пополнения лицевых счетов через платежные систему</li>
+<li>При проведении платежа (запрос «pay»), протокол должен произвести пополнение баланса абонента</li>
+</ul></li>
+<li><p>В случае если любой из запросов протокола завершается ошибкой, то протокол возвращает код ошибки в соответствии с таблицей, приведенной ниже (Приложение Б). Все ошибки имеют признак фатальности. Для системы фатальная ошибка означает, что повторная отправка запроса с теми же параметрами приведет к 100% повторению той же ошибки - следовательно, система прекращает обработку клиентского запроса и завершает его с ошибкой. Нефатальная ошибка означает для системы, что повторение запроса с теми же параметрами через некоторый промежуток времени, возможно, приведет к успеху. Система будет повторять запросы, завершающиеся не фатальной ошибкой, постоянно увеличивая интервал, пока операция не завершится успехом или фатальной ошибкой. Отсутствие связи с сервером провайдера является нефатальной ошибкой. Отсутствие в ответе элемента <result> (некорректный XML, страница Service temporarily unavailable и т.д.) - также является нефатальной ошибкой.</p></li>
+<li><p>В информационной системе провайдера не должно содержаться двух успешно проведенных платежей с одним и тем же номером txn_id. Если система повторно присылает запрос с уже существующим в информационной системе провайдера идентификатором txn_id, то провайдер должен вернуть результат обработки предыдущего запроса.</p></li>
+<li><p>Провайдер возвращает ответ на запросы системе в формате XML.</p></li>
+</ol>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Ответ:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<pre class="highlight xml tab-xml"><code>  <span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;ep_txn_id&gt;</span>123323498<span class="nt">&lt;/ep_txn_id&gt;</span>
+    <span class="nt">&lt;prv_txn&gt;</span>12369Bdkjh9<span class="nt">&lt;/prv_txn&gt;</span>
+    <span class="nt">&lt;sum&gt;</span>100.00<span class="nt">&lt;/sum&gt;</span>
+    <span class="nt">&lt;ccy&gt;</span>643<span class="nt">&lt;/ccy&gt;</span>
+    <span class="nt">&lt;fields&gt;</span>
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"prv-date"</span><span class="nt">&gt;</span>2012-04-05T12:00:07<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;/fields&gt;</span>
+    <span class="nt">&lt;type</span> <span class="na">hasList=</span><span class="s">"true"</span> <span class="na">hasInfo=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;extra&gt;</span>
+      <span class="nt">&lt;list&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">".."</span><span class="nt">&gt;&lt;/field&gt;</span>
+      <span class="nt">&lt;/list&gt;</span>
+      <span class="nt">&lt;info&gt;</span>
+        <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">".."</span><span class="nt">&gt;&lt;/field&gt;</span>
+      <span class="nt">&lt;/info&gt;</span>
+    <span class="nt">&lt;/extra&gt;</span>
+    <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+    <span class="nt">&lt;comment&gt;&lt;/comment&gt;</span>
+  <span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>response</td>
+<td>тело ответа</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>ep_txn_id</td>
+<td>номер транзакции в системе ExpressPay , который передается провайдеру в переменной txn_id. Этот элемент должен возвращаться провайдером после запросов на проверку состояния абонента и пополнение баланса (запросы <code>«check»</code> и <code>«pay»</code>)</td>
+</tr>
+<tr>
+<td>prv_txn</td>
+<td>уникальный номер операции пополнения баланса абонента (в базе дилера). Формат номера - строка не более 32 символов. Этот элемент должен возвращаться провайдером после запросов на проверку состояния абонента и пополнение баланса (запросы <code>«check»</code> и <code>«pay»</code>)</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>сумма платежа, передаваемая провайдеру, дробное число с точностью до сотых, в качестве разделителя используется «.» (точка). Если сумма представляет целое число, то оно все равно дополняется точкой и нулями, например - «152.00». Этот элемент должен возвращаться провайдером после запросов на проверку состояния абонента и пополнение баланса (запросы <code>«check»</code> и <code>«pay»</code>)</td>
+</tr>
+<tr>
+<td>ccy</td>
+<td>валюта суммы платежа (код Alpha-3 ISO 4217). Этот элемент должен возвращаться провайдером после запросов на проверку состояния абонента и пополнение баланса (запросы <code>«check»</code> и <code>«pay»</code>)</td>
+</tr>
+<tr>
+<td>result</td>
+<td>код результата завершения запроса</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>необязательный (опциональный) комментарий о результате выполнения операции</td>
+</tr>
+<tr>
+<td>type</td>
+<td><code>&lt;type hasList=&quot;true&quot; hasInfo=&quot;true&quot; /&gt;</code> - признак присутствия/отсутствия секций info и list в ответе. Тег должен содержать обязательные атрибуты <code>hasList</code> и <code>hasInfo</code>. При этом, если атрибут <code>hasList=”true”</code>, обязательно наличие секции <code>&lt;list&gt;</code> внутри</td>
+</tr>
+<tr>
+<td>extra</td>
+<td>* Аналогично, если атрибут <code>hasInfo=”true”</code>, обязательно наличие секции <code>&lt;info&gt;</code> внутри <code>&lt;extra&gt;</code>. Этот элемент должен возвращаться провайдером после запроса на получение дополнительных данных (запрос <code>«getInfo»</code>);</td>
+</tr>
+<tr>
+<td></td>
+<td>* необязательный (опциональный) тег, содержащий список данных для клиента. Этот элемент должен возвращаться провайдером после запроса на получение дополнительных данных (запрос <code>«getInfo»</code>)</td>
+</tr>
+<tr>
+<td>field</td>
+<td><code>&lt;field name=&quot;prv-date&quot;&gt;</code> - дата и время принятия платежа у провайдера в формате <code>ГГГГ-ММ-ДД’Т’ЧЧ:ММ:СС</code> (например, <code>2011-02-03T00:00:07</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td>* Этот элемент должен возвращаться провайдером после запроса на пополнение (запроса <code>«pay»</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td>* Эта дата используется для бухгалтерских взаиморасчетов. Например, имеет место ситуация: клиент прислал в систему запрос <code>31.12.2010 в 23:59:59</code>. Учитывая задержку на обработку данных и пересылку информации по каналам связи, провайдером платеж будет получен 1.01.2011 00:00:05 и, соответственно, учтен в системе провайдера в другом отчетном периоде. Чтобы при проведении сверок проблем с разными отчетными периодами не возникало, необходимо, чтобы провайдер возвращал дату, по которой производится учет в его системе.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>(9) Протокол (запросы <code>«check»</code> и <code>«pay»</code>)  предусматривает возможность передачи дополнительных реквизитов платежа (экстра полей) провайдеру в формате <code>extra\parameter_name]=parameter_value</code>. Данная возможность может быть использована в случае, если платёж невозможно провести без дополнительных данных (одного идентификатора пользователя в системе провайдера недостаточно). Например, идентификатор пользователя -
+номер кредитной карты, но для проведения платежа также нужно указать срок действия карты. На имена параметров налагаются следующее ограничения: допустимыми являются лишь цифры (0-9), подчёркивание <code>(_)</code> и строчные буквы латинского алфавита <code>(a-z)</code>. Перечень необходимых полей для передачи провайдеру необходимо указывать в заявке на подключение (Приложение А). </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>(10) Для поддержки расширяемости и сохранения работоспособности сервиса провайдера в период включения различных функций, предусмотренных протоколом (например, включение передачи новых реквизитов платежа), предполагается, что провайдер не препятствует появлению в запросе новых HTTP- параметров. Гарантируется, что появление новых параметров в запросе не приведет к необходимости изменения обработки запросов со стороны провайдера, за исключением случаев, когда такое изменение логики было согласовано с провайдером.</p>
+<h1 id='api'>API</h1><h2 id='8e5d1281c9'>Проверки Баланса Дилера</h2>
+<p><code>GET http://IP:PORT/test.asp?command=getbalance&amp;login=login&amp;ccy=USD&amp;sign=md5(login+password)</code></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p><strong>URL Parameters</strong></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>Command</td>
+<td>ДА</td>
+<td><code>getbalance</code> - идентификатор запроса на проверку баланса дилера</td>
+</tr>
+<tr>
+<td>Login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>Prvid</td>
+<td>ДА</td>
+<td><code>id</code>  провайдера, полученное из списка провайдеров (Глава 4). <code>prvid</code> уникален в нашей системе</td>
+</tr>
+<tr>
+<td>Sign</td>
+<td>ДА</td>
+<td>Хеш результат <code>md5(login+password)</code></td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Ответ:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;action&gt;</span>Get balance<span class="nt">&lt;/action&gt;</span>
+  <span class="nt">&lt;date&gt;</span>12.01.2018 13:38:29<span class="nt">&lt;/date&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>OK<span class="nt">&lt;/comment&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;balance&gt;</span>-1<span class="nt">&lt;/balance&gt;</span>
+  <span class="nt">&lt;limit&gt;</span>0<span class="nt">&lt;/limit&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Тип</th>
+<th>Описание</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>ep_txn_id</td>
+<td>ДА</td>
+<td>String</td>
+<td>внутренний номер платежа в системе ExpressPay</td>
+</tr>
+<tr>
+<td>prv_txn</td>
+<td>ДА</td>
+<td>String</td>
+<td>Уникальный код транзакции</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td>ДА</td>
+<td>Float</td>
+<td>сумма к зачислению на лицевой счет абонента;</td>
+</tr>
+<tr>
+<td>Ccy</td>
+<td>ДА</td>
+<td>String</td>
+<td>Валюта</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>ДА</td>
+<td>Integer</td>
+<td>Код результата</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>ДА</td>
+<td>String</td>
+<td>Результат обработки запроса</td>
+</tr>
+</tbody></table>
+<h2 id='ed56e0750e'>Проверка доступных операторов</h2>
+<p><code>GET http://IP:PORT/test.asp?command=prvid&amp;login=login&amp;prvid=&amp;sign=md5(login+password)</code></p>
+
+<p><strong>URL Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Command</td>
+<td>ДА</td>
+<td>prvid - идентификатор запроса на доступных операторов;</td>
+</tr>
+<tr>
+<td>Login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>Prvid</td>
+<td>ДА</td>
+<td>prvid  провайдера, полученное из списка провайдеров (Глава 4) .prvid уникален в нашей системе</td>
+</tr>
+<tr>
+<td>Sign</td>
+<td>ДА</td>
+<td>Хеш результат md5(login+password)</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Ответ:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;action&gt;</span>Providers<span class="nt">&lt;/action&gt;</span>
+  <span class="nt">&lt;date&gt;</span>11.01.2018 22:42:47<span class="nt">&lt;/date&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>OK<span class="nt">&lt;/comment&gt;</span>
+  <span class="nt">&lt;providers&gt;</span>
+    <span class="nt">&lt;provider&gt;</span>
+      <span class="nt">&lt;articul&gt;</span>62<span class="nt">&lt;/articul&gt;</span>
+      <span class="nt">&lt;typeEnter&gt;</span>0<span class="nt">&lt;/typeEnter&gt;</span>
+      <span class="nt">&lt;prefix&gt;</span>918,98<span class="nt">&lt;/prefix&gt;</span>
+      <span class="nt">&lt;name&gt;</span>Вавилон-М<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;digits&gt;</span>9<span class="nt">&lt;/digits&gt;</span>
+      <span class="nt">&lt;info&gt;</span>YES<span class="nt">&lt;/info&gt;</span>
+      <span class="nt">&lt;category&gt;</span>1<span class="nt">&lt;/category&gt;</span>
+        Упешный ответ
+      <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+      <span class="nt">&lt;maxsum&gt;</span>0<span class="nt">&lt;/maxsum&gt;</span>
+      <span class="nt">&lt;minsum&gt;</span>0<span class="nt">&lt;/minsum&gt;</span>
+    <span class="nt">&lt;/provider&gt;</span>
+  <span class="nt">&lt;/providers&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Тип</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Result</td>
+<td>Integer</td>
+<td>Код результата</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Date</td>
+<td>Дата и время обработки запроса</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>Articul</td>
+<td>String</td>
+<td>id  провайдера, полученное из списка провайдеров. <code>prvid</code> уникален в нашей системе</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>typeEnter</td>
+<td>Integer</td>
+<td>0-цифры, 1- цифры и  буквы</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>Prefix</td>
+<td>String</td>
+<td>Префиксы  провайдера (разделенные запятыми) Например: Вавилон-М имеет префиксы 918 и 98. Это значит передаваемый параметр number в action 1 должен начинаться с номером 918 или 98. Если значение тега <code>&lt;prefix&gt;&lt;/prefix&gt;</code> пустой, то у этого провайдера нет префикса.</td>
+<td>ДА. Вы должны контролировать</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>String</td>
+<td>Результат обработки запроса</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>Maxsum</td>
+<td>Money</td>
+<td>Максимальная сумма платежа. Если возвращает пустое значение, то нет ограничения на пополняемую сумму</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>Minsum</td>
+<td>Money</td>
+<td>Минимальная сумма платежа</td>
+<td>ДА</td>
+</tr>
+</tbody></table>
+<h2 id='32bb1e9b52'>Возврат курса</h2>
+<p><code>GET http://IP:PORT/test.asp?command=getcurrency&amp;login=login&amp;account=992928901106&amp;prvid=70&amp;sum=1&amp;ccy=USD&amp;sign=md5(login+password)</code></p>
+
+<p><strong>URL Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Command</td>
+<td>ДА</td>
+<td>getcurrency - идентификатор запроса на проверку баланса дилера</td>
+</tr>
+<tr>
+<td>Login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>Prvid</td>
+<td>ДА</td>
+<td>id  провайдера, полученное из списка провайдеров (Глава 4). <code>prvid</code> уникален в нашей системе</td>
+</tr>
+<tr>
+<td>Sign</td>
+<td>ДА</td>
+<td>Хеш результат <code>md5(login+password)</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Ответ:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;command&gt;</span>getcurrency<span class="nt">&lt;/command&gt;</span>
+  <span class="nt">&lt;date&gt;</span>25.05.2018 14:53:02<span class="nt">&lt;/date&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>OK<span class="nt">&lt;/comment&gt;</span>
+  <span class="nt">&lt;balance&gt;</span>9,364152<span class="nt">&lt;/balance&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>command</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comment</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>balance</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='7db9e25bf8'>Проверка существование счета абонента</h2>
+<p>Условия примера: Платежное приложение провайдера test.asp, располагается по адресу IP. Для проверки состояния абонента, система генерирует запрос следующего вида:</p>
+
+<p><code>GET http://IP:PORT/test.asp?command=check&amp;login=login&amp;txn_id=1234567&amp;account=918401468&amp;prvid=62&amp;ccy=USD&amp;sum=10.45</code></p>
+
+<p><strong>URL Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>command</td>
+<td>ДА</td>
+<td>check - идентификатор запроса на проверку существование абонента</td>
+</tr>
+<tr>
+<td>login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>account</td>
+<td>ДА</td>
+<td>Номер абонента</td>
+</tr>
+<tr>
+<td>txn_id</td>
+<td>ДА</td>
+<td>Ваш уникальный номер транзакции</td>
+</tr>
+<tr>
+<td>prvid</td>
+<td>ДА</td>
+<td>prvid  провайдера, полученное из списка провайдеров (Глава 4) .prvid уникален в нашей системе</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>ДА</td>
+<td>Сумма пополнения</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>ДА</td>
+<td>Хеш результат <code>md5(login+txn_id+account+password)</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Ответ:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;ep_txn_id&gt;</span>login_1234567<span class="nt">&lt;/ep_txn_id&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;prv_txn&gt;</span>1234567<span class="nt">&lt;/prv_txn&gt;</span>
+  <span class="nt">&lt;sum&gt;</span>10.45<span class="nt">&lt;/sum&gt;</span>
+  <span class="nt">&lt;ccy/&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>OK<span class="nt">&lt;/comment&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Тип</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ep_txn_id</td>
+<td>String</td>
+<td>внутренний номер платежа в системе ExpressPay</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>prv_txn</td>
+<td>String</td>
+<td>Уникальный код транзакции</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>Float</td>
+<td>сумма к зачислению на лицевой счет абонента</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>ccy</td>
+<td>String</td>
+<td>Валюта</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Integer</td>
+<td>Код результата</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>String</td>
+<td>Результат обработки запроса</td>
+<td>ДА</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Возвращение <code>result=0</code> на запрос <code>«check»</code> свидетельствует о том, что лицевой счет абонента с соответствующим ему номером в поле account может быть пополнен на сумму, указанную в запросе в поле sum. После успешной проверки состояния счета абонента система переходит к формированию и отправке запроса на пополнение баланса (запрос <code>«pay»</code>).
+
+В необязательном поле <code>comment</code> содержится служебный комментарий.
+</aside>
+<h2 id='04764caba2'>Пополнение лицевого счета</h2>
+<p>Условия примера: Платежное приложение провайдера test.asp, располагается по адресу IP. Для подтверждения платежа, система генерирует запрос следующего вида: </p>
+
+<p><code>GET http://IP:PORT/test.asp?command=pay&amp;login=login&amp;txn_id=1234567&amp;prvid=70&amp;account=927700463&amp;ccy=USD&amp;sum=10.00&amp;sign=&lt;sign&gt;)</code></p>
+
+<p><strong>URL Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>command</td>
+<td>ДА</td>
+<td>pay - идентификатор запроса на пополнение баланса абонента</td>
+</tr>
+<tr>
+<td>login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>account</td>
+<td>ДА</td>
+<td>Номер абонента</td>
+</tr>
+<tr>
+<td>txn_id</td>
+<td>ДА</td>
+<td>Ваш уникальный номер транзакции</td>
+</tr>
+<tr>
+<td>prvid</td>
+<td>ДА</td>
+<td>id  провайдера, полученное из списка провайдеров (Глава 4). <code>prvid</code> уникален в нашей системе</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>ДА</td>
+<td>Сумма пополнения</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>ДА</td>
+<td>Хеш результат <code>md5(login+txn_id+account+password)</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Ответ:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;ep_txn_id&gt;</span>login_1234567<span class="err">&lt;</span>/ep _txn_id&gt;
+  <span class="nt">&lt;prv_txn&gt;</span>1234567<span class="nt">&lt;/prv_txn&gt;</span>
+  <span class="nt">&lt;sum&gt;</span>10.45<span class="nt">&lt;/sum&gt;</span>
+  <span class="nt">&lt;ccy&gt;</span>RUB<span class="nt">&lt;/ccy&gt;</span>
+  <span class="nt">&lt;result&gt;</span>0<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>OK<span class="nt">&lt;/comment&gt;</span>
+  <span class="nt">&lt;fields&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"prv-date"</span><span class="nt">&gt;</span>2011-08-15T12:06:45<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/fields&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Тип</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ep_txn_id</td>
+<td>String</td>
+<td>внутренний номер платежа в системе ExpressPay</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>prv_txn</td>
+<td>String</td>
+<td>Уникальный код транзакции</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>Float</td>
+<td>сумма к зачислению на лицевой счет абонента</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>ccy</td>
+<td>String</td>
+<td>Валюта</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Integer</td>
+<td>Код результата</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>String</td>
+<td>Результат обработки запроса</td>
+<td>ДА</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Возвращая `result=0` на запрос «pay», провайдер сообщает об успешном завершении операции пополнения баланса. Система полностью завершает обработку данной транзакции. 
+
+В необязательном поле `comment` содержится служебный комментарий.
+</aside>
+<h2 id='e89eaaf5d8'>Отмена и корректировка платежа</h2>
+<p>Условия примера: Платежное приложение провайдера test.asp, располагается по адресу IP. Для отмены или корректировка платежа, система генерирует запрос следующего вида: </p>
+
+<p><code>GET http://IP:PORT/test.asp?command=cancel&amp;login=login&amp;txn_id=1234567&amp;newaccount=xxx&amp;ccy=&amp;sign=&lt;sign&gt;</code></p>
+
+<p><strong>URL Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Обязательно</th>
+<th>Пример / Описание</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>command</td>
+<td>ДА</td>
+<td>cancel - идентификатор запроса на отмена корректировка платежа</td>
+</tr>
+<tr>
+<td>login</td>
+<td>ДА</td>
+<td>Ваш логин</td>
+</tr>
+<tr>
+<td>txn_id</td>
+<td>ДА</td>
+<td>Ваш уникальный номер транзакции</td>
+</tr>
+<tr>
+<td>account</td>
+<td>ДА, если корректировка</td>
+<td>Правильный номер абонента для корректировки</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>ДА</td>
+<td>Хеш результат <code>md5(login+txn_id+password)</code></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Ответ:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;osmp_txn_id&gt;</span>1234567<span class="nt">&lt;/osmp_txn_id&gt;</span>
+  <span class="nt">&lt;prv_txn&gt;</span>1234567<span class="nt">&lt;/prv_txn&gt;</span>
+  <span class="nt">&lt;result&gt;</span>31<span class="nt">&lt;/result&gt;</span>
+  <span class="nt">&lt;cancel_amount&gt;</span>10<span class="nt">&lt;/cancel_amount&gt;</span>
+  <span class="nt">&lt;comment&gt;</span>
+    The application was successfully corrected/canceled. Заявка успешно корректирован/аннулирован.
+  <span class="nt">&lt;/comment&gt;</span>
+  <span class="nt">&lt;fields&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"prv-date"</span><span class="nt">&gt;</span>08.03.2018 2:06:04<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/fields&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
+<p><strong>Ответ</strong></p>
+
+<table><thead>
+<tr>
+<th>Имя элемента</th>
+<th>Тип</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>osmp_txn_id</td>
+<td>String</td>
+<td>внутренний номер платежа в системе ExpressPay</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>prv_txn</td>
+<td>String</td>
+<td>Уникальный код транзакции</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>cancel_amount</td>
+<td>Float</td>
+<td>Отменённая или корректированная сумма, только при успешном результате</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Integer</td>
+<td>Код результата</td>
+<td>ДА</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>String</td>
+<td>Результат обработки запроса</td>
+<td>ДА</td>
+</tr>
+</tbody></table>
+
+<p><strong>Возвращаемые коды результатов по отмене/корректировке платежа:</strong></p>
+
+<table><thead>
+<tr>
+<th>Код</th>
+<th>Комментарий (en)</th>
+<th>Комментарий (ру)</th>
+<th>Фатальность</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>31</td>
+<td>The application was successfully corrected/canceled</td>
+<td>Заявка успешно корректирован/аннулирован</td>
+<td>+</td>
+</tr>
+<tr>
+<td>30</td>
+<td>The application was accepted. In the process</td>
+<td>Заявка принято. В процессе</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Cancel payment isn&#39;t provided</td>
+<td>Отмена платежа не поддерживается</td>
+<td>+</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Payment in the process. Cancel payment isn&#39;t provided</td>
+<td>Платеж в очереде. Невозможно отменить. +99244630999</td>
+<td>+</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Provide only edit. Please enter new account for edit</td>
+<td>Поддерживается только корректировка. Введите правильный счет</td>
+<td>+</td>
+</tr>
+<tr>
+<td>21</td>
+<td>The application was rejected by the provider</td>
+<td>Заявка отклонена поставщиком</td>
+<td>+</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Sum too few</td>
+<td>Сумма слишком маленькая</td>
+<td>+</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
 
 <p>The Kittn API uses the following error codes:</p>
 
@@ -445,7 +1095,7 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -492,10 +1142,9 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="java">java</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="c++">c++</a>
           </div>
       </div>
     </div>
